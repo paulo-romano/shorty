@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 {% block pagecontent %}
-<form action="{{ url_for('shortit') }}" method=post>
-	<div class="well">
-  	URL:<input type=text size=50 name=url><input type=submit value=">">
-	</div>
-</form>
+
+<div class="well">
+	<form action="{{ url_for('shortit') }}" method=post>
+
+  	URL <input type=text size=50 name=url><input type=submit value=">">
+	</form>
+</div>
 {% endblock %}
