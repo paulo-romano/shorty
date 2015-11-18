@@ -1,4 +1,4 @@
-HOST = 'localhost:5000'
+HOST = 'radiant-lowlands-2826.herokuapp.com'
 DATABASE = '/tmp/shorty.db'
 DEBUG = True
 SECRET_KEY = 'TopSecretString'
