@@ -16,13 +16,16 @@ app = create_app()
 def index():
     return render_template('index.html')
 
-@app.route('/<int:target>')
+@app.route('/<string:target>')
 def goto(target):
     goto = get_url(target)
     if goto:
         if goto.find('http://') != 0 and goto.find('https://') != 0:
             goto = 'https://' + goto
         return redirect(goto)
+    else:
+        url = 'http://' + HOST + '/' + target
+        return render_template('erro_nourl.html', url=url)
 
 @app.route('/shortit', methods=['POST'])
 def shortit():
