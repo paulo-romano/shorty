@@ -1,3 +1,4 @@
+from config import HOST
 from flask import Flask, render_template, url_for, flash, request, redirect
 from flask_bootstrap import Bootstrap
 from models import add_url, get_url
@@ -27,7 +28,8 @@ def goto(target):
 def shortit():
     goto = request.form['url']
     target = add_url(goto)
-    flash(goto + ' foi encurtada para shorty/' + str(target), 'success')
+    link = 'http://' + HOST + '/' + str(target)
+    flash(goto + ' foi encurtada para <a href="' + link + '">' + link + '</a>', 'success')
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
